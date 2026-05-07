@@ -11,7 +11,7 @@ Hệ thống điều khiển đèn giao thông tại ngã tư sử dụng vi đi
 - **Hệ thống FSM (Finite State Machine):** Quản lý các trạng thái đèn giao thông thông minh.
 - **Chế độ Setting nâng cao:** 
     - Cho phép thay đổi thời gian các đèn Xanh/Vàng/Đỏ.
-    - Tự động tính toán ràng buộc thời gian: `Đỏ = Xanh + Vàng`.
+    - Tự động tính toán ràng buộc thời gian: `Đỏ = Xanh + Vàng + 1`.
     - Giới hạn biên dưới và xử lý tràn số hiển thị (hiện 99 khi bộ đếm > 99).
 
 
