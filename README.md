@@ -2,6 +2,19 @@
 
 Hệ thống điều khiển đèn giao thông tại ngã tư sử dụng vi điều khiển **STM32F103C8T6**. Dự án tập trung vào việc tối ưu hóa hiệu suất thông qua kiến trúc hướng sự kiện (Event-driven) và quản lý thời gian bằng ngắt phần cứng (Hardware Interrupt).
 
+## 🚀 Tính năng nổi bật
+
+- **Kiến trúc Time-Triggered:** Sử dụng Hardware Timer ngắt mỗi 1ms để tạo "nhịp đập" cho hệ thống, đảm bảo tính chính xác tuyệt đối về thời gian.
+- **Xử lý đa nhiệm phi đồng bộ:** 
+    - Quét nút bấm và chống dội phím (Debouncing) ngầm.
+    - Quét LED 7 đoạn (Multiplexing) ở tần số cao (200Hz) không gây chớp giật.
+- **Hệ thống FSM (Finite State Machine):** Quản lý các trạng thái đèn giao thông thông minh.
+- **Chế độ Setting nâng cao:** 
+    - Cho phép thay đổi thời gian các đèn Xanh/Vàng/Đỏ.
+    - Tự động tính toán ràng buộc thời gian: `Đỏ = Xanh + Vàng`.
+    - Giới hạn biên dưới và xử lý tràn số hiển thị (hiện 99 khi bộ đếm > 99).
+
+
 ## 🛠 Quy trình phát triển (Development Workflow)
 
 Dự án được triển khai theo quy trình chuẩn của một kỹ sư nhúng (Embedded Workflow), từ thiết kế phần cứng, cấu hình ngoại vi đến thực thi phần mềm:
@@ -28,18 +41,6 @@ Kiểm tra tính đúng đắn của firmware trước khi triển khai thực t
 - Hệ thống hoạt động ổn định 24/7 theo kiến trúc Time-Triggered.
 - Logic đếm ngược hiển thị số `0` đúng 1 giây trước khi chuyển trạng thái (khắc phục hoàn toàn lỗi mất nhịp thường gặp).
 - Khả năng chống nhiễu phần mềm cực tốt cho hệ thống 8 nút điều khiển.
-
-## 🚀 Tính năng nổi bật
-
-- **Kiến trúc Time-Triggered:** Sử dụng Hardware Timer ngắt mỗi 1ms để tạo "nhịp đập" cho hệ thống, đảm bảo tính chính xác tuyệt đối về thời gian.
-- **Xử lý đa nhiệm phi đồng bộ:** 
-    - Quét nút bấm và chống dội phím (Debouncing) ngầm.
-    - Quét LED 7 đoạn (Multiplexing) ở tần số cao (200Hz) không gây chớp giật.
-- **Hệ thống FSM (Finite State Machine):** Quản lý các trạng thái đèn giao thông thông minh.
-- **Chế độ Setting nâng cao:** 
-    - Cho phép thay đổi thời gian các đèn Xanh/Vàng/Đỏ.
-    - Tự động tính toán ràng buộc thời gian: `Đỏ = Xanh + Vàng`.
-    - Giới hạn biên dưới và xử lý tràn số hiển thị (hiện 99 khi bộ đếm > 99).
 
 ## 🛠 Linh kiện & Công cụ sử dụng
 
